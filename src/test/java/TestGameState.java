@@ -1,5 +1,6 @@
 import model.GameState;
 import model.Player;
+import model.Question;
 
 
 public class TestGameState {
@@ -15,7 +16,7 @@ public class TestGameState {
         game.addCorrectAnswer();
         game.addCorrectAnswer();
 
-        game.nextQuestion();
+        game.moveToNextQuestion();
 
 
         System.out.println(

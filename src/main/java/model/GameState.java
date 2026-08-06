@@ -31,7 +31,7 @@ public class GameState {
     }
 
 
-    public void nextQuestion() {
+    public void moveToNextQuestion() {
         currentQuestionId++;
     }
 

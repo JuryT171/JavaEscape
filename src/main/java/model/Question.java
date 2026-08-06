@@ -13,7 +13,6 @@ public class Question {
     public Question() {
     }
 
-
     public Question(int id, String company, String text, List<Answer> answers) {
         this.id = id;
         this.company = company;
@@ -41,6 +40,12 @@ public class Question {
         return answers;
     }
 
+    public boolean checkAnswer(int answerIndex) {
+
+        return answers
+                .get(answerIndex)
+                .isCorrect();
+    }
 
     @Override
     public String toString() {
