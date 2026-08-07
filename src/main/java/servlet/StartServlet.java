@@ -24,11 +24,12 @@ public class StartServlet extends HttpServlet {
         Player player = new Player(name);
 
         GameState gameState = new GameState(player);
+        gameState.increaseGamesPlayed();
 
         HttpSession session = request.getSession();
 
         session.setAttribute("gameState", gameState);
 
-        response.getWriter().println("Game started!");
+        response.sendRedirect("game.html");
     }
 }

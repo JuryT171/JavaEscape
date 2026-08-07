@@ -1,13 +1,24 @@
 let selectedAnswer = null;
 
 
-document.addEventListener("DOMContentLoaded", loadQuestion);
+document.addEventListener("DOMContentLoaded", function () {
+
+    loadQuestion();
+
+    document
+        .getElementById("answerButton")
+        .onclick = sendAnswer;
+
+});
+
 
 
 function loadQuestion() {
 
     fetch("game")
+
         .then(response => response.json())
+
         .then(question => {
 
 
@@ -28,6 +39,7 @@ function loadQuestion() {
 
             question.answers.forEach((answer, index) => {
 
+
                 const button =
                     document.createElement("button");
 
@@ -39,6 +51,7 @@ function loadQuestion() {
 
                 button.onclick = function () {
 
+
                     selectedAnswer = index;
 
 
@@ -47,143 +60,145 @@ function loadQuestion() {
                         selectedAnswer
                     );
 
+
                 };
 
 
                 answersDiv.appendChild(button);
 
+
             });
+
 
         });
 
-        document
-            .getElementById("answerButton")
-            .onclick = sendAnswer;
+}
 
 
 
-        function sendAnswer() {
+
+function sendAnswer() {
 
 
-            if (selectedAnswer === null) {
+    if (selectedAnswer === null) {
 
-                alert("Выберите ответ");
+        alert("Выберите ответ");
 
-                return;
-            }
+        return;
 
-
-            fetch("answer", {
-
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-
-                body:
-                    "answerIndex=" + selectedAnswer
-
-            })
-
-            .then(response => response.json())
-
-            .then(result => {
+    }
 
 
-                if (result.finished) {
+    fetch("answer", {
+
+        method: "POST",
+
+        headers: {
+
+            "Content-Type":
+                "application/x-www-form-urlencoded"
+
+        },
+
+        body:
+
+            "answerIndex=" + selectedAnswer
 
 
-                    if (result.won) {
-
-                        alert(
-                            "🎉 Победа! Оффер получен!"
-                        );
-
-                    } else {
-
-                        alert(
-                            "❌ Игра окончена"
-                        );
-
-                    }
+    })
 
 
-                } else {
-
-                    selectedAnswer = null;
-
-                    loadQuestion();
-
-                }
-
-            });
-
-            function showResult(result) {
+    .then(response => response.json())
 
 
-                document.getElementById("company")
-                    .style.display = "none";
+    .then(result => {
 
 
-                document.getElementById("question")
-                    .style.display = "none";
+        if (result.finished) {
 
 
-                document.getElementById("answers")
-                    .style.display = "none";
+            showResult(result);
 
 
-                document.getElementById("answerButton")
-                    .style.display = "none";
+        } else {
 
 
-                const resultDiv =
-                    document.getElementById("result");
+            selectedAnswer = null;
 
 
-                resultDiv.style.display = "block";
+            loadQuestion();
 
-
-                if (result.won) {
-
-
-                    document.getElementById("resultTitle")
-                        .innerText =
-                        "🎉 Поздравляем!";
-
-
-                    document.getElementById("resultText")
-                        .innerText =
-                        "Ты прошел весь лабиринт компаний! " +
-                        "Правильных ответов: " +
-                        result.score;
-
-
-                } else {
-
-
-                    document.getElementById("resultTitle")
-                        .innerText =
-                        "❌ Игра окончена";
-
-
-                    document.getElementById("resultText")
-                        .innerText =
-                        "Ты не смог открыть все двери. " +
-                        "Правильных ответов: " +
-                        result.score;
-
-                }
-
-                function restartGame() {
-
-                    window.location.href = "index.html";
-
-                }
-
-            }
 
         }
+
+
+    });
+
+
+}
+
+function showResult(result) {
+
+
+    document.getElementById("company")
+        .style.display = "none";
+
+
+    document.getElementById("question")
+        .style.display = "none";
+
+
+    document.getElementById("answers")
+        .style.display = "none";
+
+
+    document.getElementById("answerButton")
+        .style.display = "none";
+
+
+    const resultDiv =
+        document.getElementById("result");
+
+
+    resultDiv.style.display = "block";
+
+
+    if (result.won) {
+
+
+        document.getElementById("resultTitle")
+            .innerText =
+            "🎉 Поздравляем, " + result.name + "!";
+
+
+        document.getElementById("resultText")
+            .innerText =
+            "Ты прошел весь лабиринт компаний! " +
+            "Открыто дверей: " +
+            result.score;
+
+
+    } else {
+
+
+        document.getElementById("resultTitle")
+            .innerText =
+            "❌ Игра окончена";
+
+
+        document.getElementById("resultText")
+            .innerText =
+            "К сожалению, " + result.name + ", " +
+            "ты не смог открыть все двери. " +
+            "Правильных ответов: " +
+            result.score;
+
+    }
+
+}
+
+function restartGame() {
+
+    window.location.href = "index.html";
 
 }

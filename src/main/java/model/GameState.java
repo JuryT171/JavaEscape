@@ -8,6 +8,7 @@ public class GameState {
     private int correctAnswers;
     private boolean finished;
     private boolean won;
+    private int gamesPlayed;
 
 
     public GameState(Player player) {
@@ -20,45 +21,45 @@ public class GameState {
 
     }
 
-
     public Player getPlayer() {
         return player;
     }
-
 
     public int getCurrentQuestionId() {
         return currentQuestionId;
     }
 
-
     public void moveToNextQuestion() {
         currentQuestionId++;
     }
-
 
     public int getCorrectAnswers() {
         return correctAnswers;
     }
 
-
     public void addCorrectAnswer() {
         correctAnswers++;
     }
-
 
     public boolean isFinished() {
         return finished;
     }
 
-
     public boolean isWon() {
         return won;
     }
-
 
     public void finishGame(boolean won) {
         this.finished = true;
         this.won = won;
     }
 
+    public void increaseGamesPlayed() {
+        gamesPlayed++;
+    }
+
+
+    public int getGamesPlayed() {
+        return gamesPlayed;
+    }
 }

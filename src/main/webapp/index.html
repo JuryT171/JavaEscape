@@ -3,20 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <title>Java Escape</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<h1>Java Escape</h1>
+<div class="game-container">
 
-<form action="/JavaEscape/start" method="post">
+    <h1>🚪 Java Escape</h1>
 
-    <label for="name">Введите имя:</label>
+    <h2>Лабиринт больших компаний</h2>
 
-    <input type="text" id="name" name="name" required>
+    <p>
+        Ты — начинающий Java-разработчик.
+    </p>
 
-    <button type="submit">Начать игру</button>
+    <p>
+        Однажды ты оказался внутри загадочного цифрового лабиринта.
+        Перед тобой множество дверей.
+    </p>
 
-</form>
+    <p>
+        На каждой двери логотип крупной IT-компании:
+        Oracle, Google, Microsoft, Amazon и другие.
+    </p>
+
+    <p>
+        Чтобы открыть дверь и пройти дальше,
+        тебе нужно ответить на вопрос по Java и ООП.
+    </p>
+
+    <p>
+        Ошибки будут стоить тебе попытки пройти дальше.
+        Твоя цель — открыть все двери и получить свой первый оффер!
+    </p>
+
+
+    <form action="start" method="post">
+
+        <input
+                type="text"
+                name="name"
+                placeholder="Введите имя">
+
+        <br><br>
+
+        <button>
+            🚀 Начать путешествие
+        </button>
+
+    </form>
+
+
+</div>
 
 </body>
 </html>

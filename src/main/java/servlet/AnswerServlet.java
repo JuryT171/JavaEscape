@@ -62,6 +62,7 @@ public class AnswerServlet extends HttpServlet {
                 "{\"finished\":" + gameState.isFinished() +
                         ",\"won\":" + gameState.isWon() +
                         ",\"score\":" + gameState.getCorrectAnswers() +
+                        ",\"name\":\"" + gameState.getPlayer().getName() + "\"" +
                         "}"
         );
     }
