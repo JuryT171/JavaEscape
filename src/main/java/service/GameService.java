@@ -29,17 +29,24 @@ public class GameService {
             GameState state,
             Question question,
             int answerIndex) {
+
         if (question.checkAnswer(answerIndex)) {
 
             state.addCorrectAnswer();
 
             if (state.getCurrentQuestionId()
                     == questionRepository.getQuestions().size() - 1) {
+
                 state.finishGame(true);
 
             } else {
+
                 state.moveToNextQuestion();
             }
+
+        } else {
+
+            state.finishGame(false);
         }
     }
 }

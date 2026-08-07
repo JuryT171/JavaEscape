@@ -14,20 +14,21 @@ import java.io.IOException;
 @WebServlet("/start")
 public class StartServlet extends HttpServlet {
 
-
-
     @Override
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException {
+
         String name = request.getParameter("name");
+
         Player player = new Player(name);
+
         GameState gameState = new GameState(player);
-        HttpSession session =  request.getSession(); // получаем сессию
-        session.setAttribute("gameState", gameState); // сохраняем игру
-        // отправляем ответ
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().println("Game started");
+
+        HttpSession session = request.getSession();
+
+        session.setAttribute("gameState", gameState);
+
+        response.getWriter().println("Game started!");
     }
 }

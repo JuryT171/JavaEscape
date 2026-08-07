@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Java Escape</title>
-
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <h1>Java Escape</h1>
 
-<p>Добро пожаловать в текстовый квест!</p>
+<form action="/JavaEscape/start" method="post">
 
-<button>Начать игру</button>
+    <label for="name">Введите имя:</label>
 
-<script src="js/index.js"></script>
+    <input type="text" id="name" name="name" required>
+
+    <button type="submit">Начать игру</button>
+
+</form>
 
 </body>
 </html>
