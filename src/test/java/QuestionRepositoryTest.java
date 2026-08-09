@@ -1,7 +1,7 @@
-package repository;
 
 import model.Question;
 import org.junit.jupiter.api.Test;
+import repository.QuestionRepository;
 
 import java.util.List;
 
