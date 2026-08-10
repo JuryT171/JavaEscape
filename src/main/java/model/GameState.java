@@ -1,6 +1,6 @@
 package model;
 
-
+// хранит состояние игры
 public class GameState {
 
     private Player player;
@@ -8,17 +8,14 @@ public class GameState {
     private int correctAnswers;
     private boolean finished;
     private boolean won;
-    private int gamesPlayed;
 
 
     public GameState(Player player) {
-
         this.player = player;
         this.currentQuestionId = 0;
         this.correctAnswers = 0;
         this.finished = false;
         this.won = false;
-
     }
 
     public Player getPlayer() {
@@ -52,14 +49,5 @@ public class GameState {
     public void finishGame(boolean won) {
         this.finished = true;
         this.won = won;
-    }
-
-    public void increaseGamesPlayed() {
-        gamesPlayed++;
-    }
-
-
-    public int getGamesPlayed() {
-        return gamesPlayed;
     }
 }

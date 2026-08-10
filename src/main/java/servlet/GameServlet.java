@@ -33,7 +33,7 @@ public class GameServlet extends HttpServlet {
             );
             return;
         }
-
+        // получаем gameState
         GameState gameState = (GameState) session.getAttribute("gameState");
 
         if (gameState == null) {
@@ -46,9 +46,9 @@ public class GameServlet extends HttpServlet {
 
         Question question = gameService.getCurrentQuestion(gameState); // получаем вопрос
 
-        response.setContentType("application/json");
+        response.setContentType("application/json");// отправляем json
         response.setCharacterEncoding("UTF-8");
 
-        objectMapper.writeValue(response.getWriter(), question); // отдаем json
+        objectMapper.writeValue(response.getWriter(), question); // превращаем question в json
     }
 }

@@ -2,10 +2,10 @@ package model;
 
 public class Answer {
 
-    private String text;
+    private String text; // текст ответа
     private boolean correct;
 
-    public Answer() {
+    public Answer() { // конструктор без параметров
     }
 
     public Answer(String text, boolean correct) {

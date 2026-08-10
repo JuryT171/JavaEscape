@@ -30,10 +30,10 @@ public class Player {
     public int getBestScore() {
         return bestScore;
     }
-
-    public void increaseGamesPlayed() {
-        gamesPlayed++;
-    }
+    // счетчик
+     public void increaseGamesPlayed() {
+         gamesPlayed++;
+     }
 
     public void updateBestScore(int score) {
         if (score > bestScore) {

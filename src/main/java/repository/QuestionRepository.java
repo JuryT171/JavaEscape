@@ -9,10 +9,9 @@ public class QuestionRepository {
 
     private final List<Question> questions;
 
+    // конструктор списка вопросов
     public QuestionRepository() {
-
         questions = List.of(
-
                 new Question(
                         0,
                         "Oracle",
@@ -24,7 +23,6 @@ public class QuestionRepository {
                                 new Answer("Абстракция", false)
                         )
                 ),
-
 
                 new Question(
                         1,
@@ -38,7 +36,6 @@ public class QuestionRepository {
                         )
                 ),
 
-
                 new Question(
                         2,
                         "Google",
@@ -50,7 +47,6 @@ public class QuestionRepository {
                                 new Answer("Интерфейс", false)
                         )
                 ),
-
 
                 new Question(
                         3,
@@ -64,7 +60,6 @@ public class QuestionRepository {
                         )
                 ),
 
-
                 new Question(
                         4,
                         "Amazon",
@@ -77,7 +72,6 @@ public class QuestionRepository {
                         )
                 ),
 
-
                 new Question(
                         5,
                         "OpenAI",
@@ -88,14 +82,11 @@ public class QuestionRepository {
                                 new Answer("HashSet", true),
                                 new Answer("LinkedList", false)
                         )
-
                 )
         );
-
     }
 
     public List<Question> getQuestions() {
-
         return questions;
     }
 }
