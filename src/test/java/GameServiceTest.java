@@ -21,8 +21,7 @@ public class GameServiceTest {
         GameState state = new GameState(player);
 
 
-        Question question =
-                gameService.getCurrentQuestion(state);
+        Question question = gameService.getCurrentQuestion(state);
 
 
         gameService.processAnswer(
@@ -55,8 +54,7 @@ public class GameServiceTest {
         GameState state = new GameState(player);
 
 
-        Question question =
-                gameService.getCurrentQuestion(state);
+        Question question = gameService.getCurrentQuestion(state);
 
 
         gameService.processAnswer(
@@ -74,7 +72,5 @@ public class GameServiceTest {
         assertFalse(
                 state.isWon()
         );
-
     }
-
 }

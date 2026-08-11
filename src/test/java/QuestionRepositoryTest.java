@@ -13,16 +13,11 @@ public class QuestionRepositoryTest {
     @Test
     void repositoryShouldReturnQuestions() {
 
-        QuestionRepository repository =
-                new QuestionRepository();
+        QuestionRepository repository = new QuestionRepository();
 
-
-        List<Question> questions =
-                repository.getQuestions();
-
+        List<Question> questions = repository.getQuestions();
 
         assertNotNull(questions);
-
 
         assertEquals(
                 6,
@@ -35,9 +30,7 @@ public class QuestionRepositoryTest {
     @Test
     void firstQuestionShouldBelongToOracle() {
 
-        QuestionRepository repository =
-                new QuestionRepository();
-
+        QuestionRepository repository = new QuestionRepository();
 
         Question question =
                 repository.getQuestions().get(0);
@@ -53,7 +46,5 @@ public class QuestionRepositoryTest {
                 "Какой принцип ООП позволяет скрывать внутреннюю реализацию объекта?",
                 question.getText()
         );
-
     }
-
 }
