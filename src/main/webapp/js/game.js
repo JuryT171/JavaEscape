@@ -63,7 +63,7 @@ function sendAnswer() {
             loadQuestion();
         }
     });
-}
+}  
 
 function showResult(result) {
 
