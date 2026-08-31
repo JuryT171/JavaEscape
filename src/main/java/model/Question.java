@@ -17,7 +17,7 @@ public class Question {
         this.id = id;
         this.company = company;
         this.text = text;
-        this.answers = answers;
+        this.answers = answers; //п
     }
 
 
